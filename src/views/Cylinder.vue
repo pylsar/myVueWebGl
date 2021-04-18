@@ -1,17 +1,13 @@
 <template>
-  <div class="cube">
-    <h1>This is an CUBE page</h1>
+  <div class="cylinder">
   </div>
 </template>
+
 <script>
 import * as THREE from "three";
+
 export default{
-  name: 'Cube',
-  data(){
-    return {
-      isZoomed: false,
-    }
-  },
+  name: 'Cylinder',
   mounted(){
     const scene = new THREE.Scene();
 
@@ -28,21 +24,21 @@ export default{
 
     this.$el.appendChild(renderer.domElement);
 
-    //Cube
+    //Cylinder
 
-    const geometry = new THREE.BoxGeometry(1, 1, 1);
-    const material = new THREE.MeshBasicMaterial({
+    const geometry = new THREE.CylinderGeometry(1, 1, 2);
+    const material = new THREE.MeshNormalMaterial({
       color: 0x00aabb
     });
 
-    const cube = new THREE.Mesh(geometry, material);
-    scene.add(cube);
+    const cylinder = new THREE.Mesh(geometry, material);
+    scene.add(cylinder);
 
     function animate() {
       requestAnimationFrame(animate);
 
-      cube.rotation.x += 0.01;
-      cube.rotation.y += 0.01;
+      cylinder.rotation.x += 0.03;
+      cylinder.rotation.y += 0.01;
 
       renderer.render(scene, camera);
     }
@@ -50,4 +46,6 @@ export default{
 
   }
 }
+  
+
 </script>

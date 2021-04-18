@@ -17,9 +17,9 @@ const routes = [
     component: Cube
   },
   {
-    path: '/sphere',
-    name: 'Sphere',
-    component: () => import('../views/Sphere.vue')
+    path: '/cylinder',
+    name: 'Cylinder',
+    component: () => import('../views/Cylinder.vue')
   }
 ]
 
