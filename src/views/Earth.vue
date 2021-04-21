@@ -1,12 +1,12 @@
 <template>
-  <div class="cube">
+  <div class="earth">
     <h1>This is an CUBE page</h1>
   </div>
 </template>
 <script>
 import * as THREE from "three";
 export default{
-  name: 'Cube',
+  name: 'Earth',
   mounted(){
     const scene = new THREE.Scene();
 
@@ -16,32 +16,31 @@ export default{
       0.5,
       1000
     );
-    camera.position.z = 5;
+    camera.position.z = 200;
 
     const renderer = new THREE.WebGLRenderer();
     renderer.setSize(window.innerWidth, window.innerHeight -100); // 100 это высота навбара
 
     this.$el.appendChild(renderer.domElement);
 
-    //Cube
+    //Earth
 
-    const geometry = new THREE.BoxGeometry(1, 1, 1);
+    const geometry = new THREE.SphereGeometry(100, 40, 40);
     const material = new THREE.MeshBasicMaterial({
-      color: 0x00aabb
+      map: THREE.ImageUtils.loadTexture('earth.jpg') // вроде как деприкейтед
     });
 
-    const cube = new THREE.Mesh(geometry, material);
-    scene.add(cube);
+    const earth = new THREE.Mesh(geometry, material);
+    scene.add(earth);
+    animate();
 
     function animate() {
       requestAnimationFrame(animate);
 
-      cube.rotation.x += 0.01;
-      cube.rotation.y += 0.01;
+      earth.rotation.y -= .01;
 
       renderer.render(scene, camera);
     }
-    animate();
 
   }
 }

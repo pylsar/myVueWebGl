@@ -2,6 +2,7 @@
     <nav class="navbar">
         <router-link to="/" class="navbar__link">Home</router-link>
         <router-link to="/cube" class="navbar__link">Cube</router-link>
+        <router-link to="/earth" class="navbar__link">Earth</router-link>
         <router-link to="/cylinder" class="navbar__link">Cylinder</router-link>
     </nav>
 </template>
