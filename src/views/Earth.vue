@@ -1,12 +1,29 @@
 <template>
   <div class="earth">
-    <h1>This is an CUBE page</h1>
+    <h1>This is an Earth page</h1>
   </div>
 </template>
 <script>
 import * as THREE from "three";
+import { TimelineMax } from 'gsap';
+
 export default{
   name: 'Earth',
+  transition: {
+    name: 'anim',
+    mode: 'in-out',
+    css: false,
+
+    enter(el, done){
+      let tl = new TimelineMax({onComplete: done});
+      tl.fromTo(el, 0.3,{y: -100, opacity: 0}, {y: 0, opacity: 1});
+        
+    },
+    leave(el, done){
+      let tl = new TimelineMax({onComplete: done});
+      tl.fromTo(el, 0.3,{y: 0, opacity: 1}, {y: 100, opacity: 0});
+    }
+  },
   mounted(){
     const scene = new THREE.Scene();
 
@@ -45,3 +62,13 @@ export default{
   }
 }
 </script>
+<style>
+  h1{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    color: yellow;
+  }
+</style>
