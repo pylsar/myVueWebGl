@@ -5,25 +5,9 @@
 </template>
 <script>
 import * as THREE from "three";
-// import { TimelineMax } from 'gsap';
 
 export default{
   name: 'Earth',
-  // transition: {
-  //   name: 'anim',
-  //   mode: 'in-out',
-  //   css: false,
-
-  //   enter(el, done){
-  //     let tl = new TimelineMax({onComplete: done});
-  //     tl.fromTo(el, 0.3,{y: -100, opacity: 0}, {y: 0, opacity: 1});
-        
-  //   },
-  //   leave(el, done){
-  //     let tl = new TimelineMax({onComplete: done});
-  //     tl.fromTo(el, 0.3,{y: 0, opacity: 1}, {y: 100, opacity: 0});
-  //   }
-  // },
   mounted(){
     const scene = new THREE.Scene();
 
@@ -45,7 +29,7 @@ export default{
     const geometry = new THREE.SphereGeometry(100, 40, 40);
     const material = new THREE.MeshBasicMaterial({
       // map: THREE.ImageUtils.loadTexture('earth.jpg') // вроде как деприкейтед
-      map: new THREE.TextureLoader().load('earth.jpg') 
+      map: new THREE.TextureLoader().load('earth.jpg')
     });
 
     const earth = new THREE.Mesh(geometry, material);

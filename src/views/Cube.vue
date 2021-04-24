@@ -5,23 +5,9 @@
 </template>
 <script>
 import * as THREE from "three";
-// import { TimelineMax } from 'gsap';
 
 export default{
   name: 'Cube',
-  // transition: {
-  //   name: 'anim',
-  //   mode: 'out-in',
-  //   css: false,
-  //   enter(el, done){
-  //     let tl = new TimelineMax({onComplete: done});
-  //     tl.fromTo(el, 0.3,{y: -1000, opacity: 0, rotation: 30}, {y: 0, opacity: 1, rotation: 0});
-  //   },
-  //   leave(el, done){
-  //     let tl = new TimelineMax({onComplete: done});
-  //     tl.fromTo(el, 0.3,{y: 0, opacity: 1}, {y: 1000, opacity: 0});
-  //   }
-  // },
   mounted(){
     const scene = new THREE.Scene();
 
