@@ -1,7 +1,9 @@
 <template>
   <div id="app">
     <Navbar />
-    <router-view/>
+    <transition name="page">
+      <router-view/>
+    </transition>  
   </div>
 </template>
 <script>
@@ -24,5 +26,22 @@ export default{
     height: 100vh;
     background: black;
   }
+  .page-enter-active {
+    animation: page-in .5s reverse;
+  }
+  .page-leave-active {
+    animation: page-in .5s;
+  }
+  @keyframes page-in  {
+    0% {
+      transform: scale(.7);
+      overflow: hidden;
+    }
+    100% {
+      transform: scale(0);
+      overflow: hidden;
+    }
+  }
+
 
 </style>
